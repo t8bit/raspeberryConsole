@@ -1,0 +1,48 @@
+import pygame,sys,random
+from collections import deque
+
+#global init
+pygame.init()
+size = 800,600
+speed = -3
+screen = pygame.display.set_mode(size)
+bg = pygame.image.load("res/bg.png")
+bgrect = bg.get_rect()
+
+class Car:
+    'Doc: Class Car represents the physical car that you control'
+    def __init__(self):
+        self.img = pygame.image.load("res/car.png")
+        self.rect = self.img.get_rect()
+        self.rect = self.rect.move(500,300)
+    def left(self):
+        return self.rect.left
+    def right(self):
+        return self.rect.right
+    def top(self):
+        return self.rect.top
+    def bottom(self):
+        return self.rect.bottom
+    def move(self,x,y):
+        self.rect = self.rect.move(x,y)
+    def render(self):
+        screen.blit(self.img,self.rect)
+
+def begin():
+    cars = deque()
+    while 1:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT: sys.exit()
+        screen.blit(bg,bgrect)
+        
+        if pygame.time.get_ticks() % (100*random.randint(1,3)) == 0:
+            cars.append(Car())
+        
+        for car in cars:
+            car.move(speed,0)
+            car.render()
+
+def main():
+    begin()
+if __name__ == "__main__":
+    main()

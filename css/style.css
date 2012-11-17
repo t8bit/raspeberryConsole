@@ -1,0 +1,26 @@
+body
+{
+	padding:0px;
+	margin:0px;
+}
+
+#debug{display:none;}
+
+a:link {color:black;text-decoration:none;}      /* unvisited link */
+a:visited {color:black;text-decoration:none;}  /* visited link */
+a:hover {color:black;text-decoration:none;}  /* mouse over link */
+a:active {color:black;text-decoration:none;}  /* selected link */
+p{font-size:30px;text-align:center;font-weight:bold;}
+
+.game
+{
+	float:left;
+	width:100px;
+	height:130px;
+	border:1px solid grey;
+	border-radius:4px;
+	margin:5px;
+	text-align:center;
+	font-weight:bold;
+	font-size:12px;
+}
